@@ -15,10 +15,10 @@ int isOperator(char buffer[]) {
         "->"
     };
 
-    int i;
-    for (i = 0; i < sizeof(operators) / sizeof(operators[0]); i++) {
-        if (strcmp(operators[i], buffer) == 0)
+    for (int i = 0; i < sizeof(operators) / sizeof(operators[0]); i++) {
+        if (strcmp(operators[i], buffer) == 0) {
             return 1;
+        }
     }
     return 0;
 }
@@ -32,7 +32,6 @@ int main() {
     char ch, next;
     char buffer[4];
     FILE *fp;
-    int i;
 
     fp = fopen("code.txt", "r");
 
@@ -58,12 +57,12 @@ int main() {
                 }
             }
 
-            if (isOperator(buffer))
+            if (isOperator(buffer)) {
                 printf("%s is operator\n", buffer);
-            else
+            }else{
                 printf("%c is operator\n", ch);
-        }
-        else if (isSpecial(ch)) {
+            }
+        }else if (isSpecial(ch)) {
             printf("%c is special character\n", ch);
         }
     }
